@@ -259,4 +259,43 @@
    */
   new PureCounter();
 
+  /**
+   * Portfolio Carousel with Swiper
+   */
+  if (document.querySelector('.portfolio-slider')) {
+    new Swiper('.portfolio-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 40
+        }
+      }
+    });
+  }
+
 })()
