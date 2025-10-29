@@ -1,0 +1,373 @@
+/*--------------------------------------------------------------
+# Game Mode Styles - Mario Inspired
+--------------------------------------------------------------*/
+
+/* Game Mode Toggle Button */
+.game-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: linear-gradient(135deg, #E52521 0%, #8B0000 100%);
+  color: white;
+  border: 4px solid #FFD700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #8B0000, 0 8px 15px rgba(229, 37, 33, 0.4);
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+}
+
+.game-mode-toggle:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #8B0000, 0 4px 10px rgba(229, 37, 33, 0.6);
+}
+
+.game-mode-toggle:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #8B0000, 0 2px 5px rgba(229, 37, 33, 0.6);
+}
+
+.game-mode-toggle i {
+  font-size: 18px;
+}
+
+/* Game Canvas Container */
+.game-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #5C94FC;
+  z-index: 9998;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.game-container.active {
+  display: block;
+  pointer-events: auto;
+}
+
+#gameCanvas {
+  display: block;
+  background: #5C94FC;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  outline: none;
+}
+
+/* Game UI Overlay */
+.game-ui {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 3px 3px 0px #000;
+  font-size: 14px;
+  z-index: 9999;
+  display: none; /* Hide the entire UI overlay */
+}
+
+.game-ui .score-display {
+  background: #000;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 3px solid #FFD700;
+  display: inline-block;
+}
+
+.game-ui .coin-count {
+  color: #FFD700;
+  margin-left: 10px;
+}
+
+.game-ui .controls {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 10px;
+  line-height: 2;
+  border: 3px solid #FFD700;
+  max-width: 250px;
+}
+
+.game-ui .controls div {
+  margin: 5px 0;
+}
+
+.game-ui .current-room {
+  background: linear-gradient(135deg, #E52521, #FF6B6B);
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: inline-block;
+  border: 3px solid #FFD700;
+  box-shadow: 0 4px 0 #8B0000;
+}
+
+/* Info Panel - Pixel Art Style */
+.info-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  color: white;
+  padding: 0;
+  border: 8px solid #FFD700;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow: hidden;
+  display: none;
+  z-index: 10001;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 0 0 0 4px #000, 0 0 0 8px #FFD700, 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.info-panel.active {
+  display: block;
+  animation: powerUpAppear 0.3s steps(4);
+}
+
+@keyframes powerUpAppear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.info-panel-header {
+  background: linear-gradient(135deg, #E52521, #8B0000);
+  padding: 20px;
+  border-bottom: 4px solid #FFD700;
+  text-align: center;
+}
+
+.info-panel-header h2 {
+  color: #FFD700;
+  font-size: 20px;
+  margin: 0;
+  text-shadow: 3px 3px 0 #000;
+  letter-spacing: 2px;
+}
+
+.info-panel-content {
+  padding: 25px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+}
+
+.info-panel-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.info-panel-content::-webkit-scrollbar-track {
+  background: #000;
+  border: 2px solid #FFD700;
+}
+
+.info-panel-content::-webkit-scrollbar-thumb {
+  background: #E52521;
+  border: 2px solid #FFD700;
+}
+
+.info-panel h3 {
+  color: #FFD700;
+  font-size: 16px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 0 #000;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 10px;
+}
+
+.info-panel h3:first-child {
+  margin-top: 0;
+}
+
+.info-panel p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 11px;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.info-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.info-panel ul li {
+  padding: 8px 0 8px 25px;
+  position: relative;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.info-panel ul li:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+  font-size: 14px;
+  animation: starTwinkle 1s infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.close-panel {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  border: 4px solid #000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  box-shadow: 0 4px 0 #8B6914;
+  transition: all 0.1s ease;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.close-panel:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #8B6914;
+}
+
+.close-panel:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #8B6914;
+}
+
+.info-panel-footer {
+  padding: 15px 25px;
+  background: #000;
+  border-top: 4px solid #FFD700;
+}
+
+/* Pixel Art Elements */
+.pixel-coin {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #FFD700;
+  border: 2px solid #FFA500;
+  border-radius: 50%;
+  animation: coinSpin 1s infinite;
+}
+
+@keyframes coinSpin {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.3); }
+}
+
+/* Loading Animation */
+.loading-coins {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loading-coins span {
+  width: 20px;
+  height: 20px;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: coinBounce 0.6s infinite;
+}
+
+.loading-coins span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-coins span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes coinBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .game-mode-toggle {
+    font-size: 8px;
+    padding: 8px 16px;
+  }
+  
+  .game-ui {
+    font-size: 8px;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .game-ui .controls {
+    font-size: 7px;
+    padding: 10px;
+  }
+  
+  .info-panel {
+    max-width: 95%;
+    border: 4px solid #FFD700;
+  }
+  
+  .info-panel-header h2 {
+    font-size: 14px;
+  }
+  
+  .info-panel-content {
+    padding: 15px;
+    font-size: 9px;
+  }
+  
+  .info-panel h3 {
+    font-size: 12px;
+  }
+  
+  .info-panel p,
+  .info-panel ul li {
+    font-size: 9px;
+  }
+  
+  .close-panel {
+    font-size: 9px;
+    padding: 10px 20px;
+  }
+}

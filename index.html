@@ -15,6 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -25,15 +26,33 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  <link href="assets/css/game-mode.css" rel="stylesheet">
 
 </head>
 
 <body>
+
+  <!-- ======= Game Mode Toggle Button ======= -->
+  <button class="game-mode-toggle" onclick="toggleGameMode()">
+    <i class="bx bx-game"></i>
+    <span class="toggle-text">Game Mode</span>
+  </button>
+
+  <!-- ======= Game Container ======= -->
+  <div class="game-container">
+    <canvas id="gameCanvas" tabindex="0"></canvas>
+    <div class="game-ui">
+      <div class="current-room">🏠 Main Hub</div>
+      <div class="controls">
+        <div>WASD - Move</div>
+        <div>SPACE - Jump</div>
+        <div>E - Interact</div>
+      </div>
+    </div>
+    <div class="info-panel"></div>
+  </div>
 
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -755,6 +774,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/game-mode.js"></script>
 
 </body>
 
